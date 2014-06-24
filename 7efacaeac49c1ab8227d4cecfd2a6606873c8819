@@ -1,0 +1,8 @@
+Code-Review+2: Ottomata <otto@wikimedia.org>
+Verified+2: Ottomata <otto@wikimedia.org>
+Verified+2: jenkins-bot
+Submitted-by: Ottomata <otto@wikimedia.org>
+Submitted-at: Tue, 24 Jun 2014 19:50:45 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/141768
+Project: operations/puppet/kafka
+Branch: refs/heads/master
