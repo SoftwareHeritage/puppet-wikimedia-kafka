@@ -1,0 +1,7 @@
+Verified+2: jenkins-bot
+Code-Review+2: Gage <jgerard@wikimedia.org>
+Submitted-by: Gage <jgerard@wikimedia.org>
+Submitted-at: Thu, 03 Jul 2014 17:29:21 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/143910
+Project: operations/puppet/kafka
+Branch: refs/heads/master
