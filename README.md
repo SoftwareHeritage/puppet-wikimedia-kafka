@@ -72,51 +72,11 @@ Hash passed into the `kafka` base class.
 `zookeeper_chroot` is optional, and allows you to specify a Znode under
 which Kafka will store its metadata in Zookeeper.  This is useful if you
 want to use a single Zookeeper cluster to manage multiple Kafka clusters.
-See below for information on how to create this Znode in Zookeeper.
 
-
-
-## Custom Zookeeper Chroot
-
-If Kafka will share a Zookeeper cluster with other users, you might want to
-create a Znode in zookeeper in which to store your Kafka cluster's data.
-You can set the `zookeeper_chroot` parameter on the `kafka` class to do this.
-
-First, you'll need to create the znode manually yourself.  You can use
-`zkCli.sh` that ships with Zookeeper, or you can use the kafka built in
-`zookeeper-shell`:
-
-
-```
-$ kafka zookeeper-shell <zookeeper_host>:2182
-Connecting to kraken-zookeeper
-Welcome to ZooKeeper!
-JLine support is enabled
-
-WATCHER::
-
-WatchedEvent state:SyncConnected type:None path:null
-[zk: kraken-zookeeper(CONNECTED) 0] create /my_kafka kafka
-Created /my_kafka
-```
-
-You can use whatever chroot znode path you like.  The second argument
-(`data`) is arbitrary.  I used 'kafka' here.
-
-Then:
-```puppet
-class { 'kafka::server':
-    brokers => {
-        'kafka-node01.example.com' => { 'id' => 1, 'port' => 12345 },
-        'kafka-node02.example.com' => { 'id' => 2 },
-    },
-    zookeeper_hosts => ['zk-node01:2181', 'zk-node02:2181', 'zk-node03:2181'],
-    # set zookeeper_chroot on the kafka class.
-    zookeeper_chroot => '/kafka/clusterA',
-}
-```
 
 ## Kafka Mirror
+
+TODO: UPDATE THIS XXX
 
 Kafka MirrorMaker is usually used for inter data center Kafka cluster replication
 and aggregation.  You can consume from any number of source Kafka clusters, and
