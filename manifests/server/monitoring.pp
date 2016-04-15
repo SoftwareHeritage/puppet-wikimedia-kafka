@@ -15,6 +15,7 @@ class kafka::server::monitoring(
     $jmx_port            = 9999,
     $nagios_servicegroup = undef,
     $group_prefix        = undef,
+    $
 ) {
     # Generate icinga alert if Kafka Server is not running.
     nrpe::monitor_service { 'kafka':
@@ -69,6 +70,10 @@ class kafka::server::monitoring(
         percentage  => 50,
         require     => Class['::kafka::server::jmxtrans'],
         group       => $nagios_servicegroup,
+        # This check is too noisy because of
+        # https://phabricator.wikimedia.org/T121407.
+        # TODO: Re-enable after 0.9 upgrade.
+        ensure      => 'absent',
     }
 
     # monitor disk statistics
