@@ -1,0 +1,7 @@
+Code-Review+2: Dzahn <dzahn@wikimedia.org>
+Verified+2: jenkins-bot
+Submitted-by: Dzahn <dzahn@wikimedia.org>
+Submitted-at: Sun, 26 Jun 2016 11:14:29 +0000
+Reviewed-on: https://gerrit.wikimedia.org/r/295986
+Project: operations/puppet/kafka
+Branch: refs/heads/master
