@@ -219,7 +219,7 @@ class kafka::server(
     # package installs a systemd service file.  It is not possible
     # to set number open files ulimit via /etc/default/kafka wth systemd,
     # so we need to install a custom systemd override file.
-    $use_systemd = $::lsbdistid == 'Debian' and $::lsbmajdistrelease >= 8
+    $use_systemd = $::lsbdistid == 'Debian' and versioncmp($::lsbmajdistrelease, '8') >= 0
     if $use_systemd {
         file { '/etc/systemd/system/kafka.service.d':
             ensure => 'directory',
